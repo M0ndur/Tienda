@@ -1,0 +1,91 @@
+#encabezado {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 8%;
+    width: 100%;
+    background-color: beige;
+    color: black;
+}
+
+#encabezado h1 {
+    display: inline 
+}
+
+#menu {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    height: 4%;
+    width: 100%;
+    background-color: black;
+    color: white;
+    
+}
+
+#menu a {
+    background-color: background;
+    color: white;
+    
+}
+
+#menu a:hover {
+    background-color: white;
+    color: background;
+    
+}
+
+#barrarlateral {
+    position: absolute;
+    top: 12%;
+    left: 0;
+    height: 84%;
+    width: 20%;
+    background-color: cadetblue;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#contenido {
+    position: absolute;
+    padding-left: 10px;
+    padding-right: 10px;
+    top: 12%;
+    left: 20%;
+    height: 84%;
+    width: 80%;
+    background-color: whitesmoke;
+    overflow: auto;
+}
+
+#piedepagina {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 4%;
+    width: 100%;
+    background-color: lightgoldenrodyellow;
+    text-align: center;
+    
+}
+
+#contenido article{
+    background-color: wheat;
+    
+}
+
+#encabezadotabla {
+    background-color: grey;
+    color: white;
+}
+
+#detalletabla tr:nth-child(odd) {
+    background-color: cadetblue;
+    color: black;
+}
+
+#detalletabla tr:nth-child(even) {
+    background-color: white;
+    color: black;
+}
