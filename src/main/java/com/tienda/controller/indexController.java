@@ -50,6 +50,23 @@ public class indexController {
    
         return "redirect:/";
     }
+        
+    @GetMapping("/modificarCliente/{idCliente}") //id Cliente tendra un valor para cada usaurio
+
+        public String modificarCliente(Cliente cliente, Model model){
+            cliente = clienteService.getCliente(cliente); // se encarga el objeto
+            model.addAttribute("cliente", cliente); // y se lo paso a modificar CLinete, esto para que aparezca la info precargada
+   
+        return "modificarCliente";
+    }
+        
+    @GetMapping("/eliminarCliente/{idCliente}")
+
+        public String eliminarCliente(Cliente cliente){
+        clienteService.delete(cliente); 
+   
+        return "redirect:/";
+    }
 }
     
 

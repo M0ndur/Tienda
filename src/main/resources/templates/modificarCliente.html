@@ -16,7 +16,8 @@
               th:object="${cliente}">  <!-- por seguridad de que no se vea el texto en el URL se usa el metodo post-->
             
             <!-- object:registrar cliente -->
-            
+            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
+
             <label for="nombre">Nombre: </label> <!-- for etiqueta para nombre -->
             <input type="text" name="nombre" th:field="*{nombre}"/>
             <br/>
