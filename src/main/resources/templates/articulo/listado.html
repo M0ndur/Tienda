@@ -13,11 +13,12 @@
 
         <a th:href="@{/articulo/nuevo}">Nuevo Articulo </a>
         
-        <div th:if="${articulos != null and !articulos.empty}"> <!-- Este bloque funciona si la variable articulos es diferente a null y no esta vacia -->
-        <table border="1">
+        <div th:if="${articulos != null and !articulos.empty}"> 
+            <table border="1">
             <thead>
                 <tr>
                     <th>Descripcion</th>
+                    <th>Detalle</th>
                     <th>Precio</th>
                     <th>Existencias</th>
                     <th>Activo</th>
@@ -29,6 +30,7 @@
             <tbody>
                 <tr th:each="articulo : ${articulos}">
                     <td th:text="${articulo.descripcion}"></td>
+                     <td th:text="${articulo.detalle}"></td>
                     <td th:text="${articulo.precio}"></td>
                     <td th:text="${articulo.existencias}"></td>
                     <td th:text="${articulo.activo}"></td>

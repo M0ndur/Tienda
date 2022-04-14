@@ -12,29 +12,18 @@
         <div class="contenido">
         <h1>Datos de categorias</h1>
                 
-        <a th:href="@{/}">Regresar</a>
+        <a th:href="@{/categoria/listado}">Regresar</a>
         
         <form th:action="@{/categoria/guardar}"
               method="post"
-              th:object="${categoria}">  <!-- por seguridad de que no se vea el texto en el URL se usa el metodo post-->
-            
+              th:object="${categoria}">  
             <input type="hidden" name="idCategoria" th:field="*{idCategoria}"/>
 
-            <label for="nombre">Nombre: </label> <!-- for etiqueta para nombre -->
-            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <label for="descripcion">Descripcion: </label> 
+            <input type="text" name="descripcion" th:field="*{descripcion}"/>
             <br/>
-            <label for="apellidos">Apellidos: </label> 
-            <input type="text" name="apellidos" th:field="*{apellidos}"/>
-            <br/> 
-            <label for="correo">Correo: </label> 
-            <input type="email" name="correo" th:field="*{correo}"/>
-            <br/> 
-            <label for="telefono">Telefono: </label> 
-            <input type="tel" name="telefono" th:field="*{telefono}"/>
-            
-            <br/> 
-            <label for="limite">Limite: </label> 
-            <input type="number" name="limite" th:field="*{credito.limite}"/>
+            <label for="activo">Activo (true or false): </label> 
+            <input type="text" name="activo" th:field="*{activo}"/>
             <br/> 
             
             <input type="submit" name="guardar" value="Guardar"/>
