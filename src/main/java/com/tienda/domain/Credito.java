@@ -15,6 +15,7 @@ public class Credito implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // para la autoincrementacion
+    @Column(name="id_credito")
     private Long idCredito; //esto para mapear una tabla de mySQL, fin
     
     private double limite;

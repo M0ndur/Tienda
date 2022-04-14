@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <link href="/CSS/Menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+        <h1>Categoria de productos</h1>
+
+        <a th:href="@{/cliente/nuevo}">Nuevo Cliente </a>
+        
+        <div th:if="${clientes != null and !clientes.empty}"> <!-- Este bloque funciona si la variable clientes es diferente a null y no esta vacia -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Limite de credito</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.apellidos}"></td>
+                    <td th:text="${cliente.correo}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.credito.limite}"></td>
+                    <td> <a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}">Eliminar</a></td>
+                    <td> <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}">Modificar</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div th:if="${clientes == null or clientes.empty}"> No tenemos lista de clientes que mostrar en este momento </div>
+            
+        </div>
+        <footer th:replace="layout/plantilla :: footer"/>
+    </body>
+</html>

@@ -2,7 +2,9 @@
 package com.tienda.service;
 
 import com.tienda.dao.ClienteDao;
+import com.tienda.dao.CreditoDao;
 import com.tienda.domain.Cliente;
+import com.tienda.domain.Credito;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +13,10 @@ import org.springframework.stereotype.Service;
 public class ClienteServicempl implements ClienteService {
     
     @Autowired
-    
     private ClienteDao clienteDao;
+    
+    @Autowired
+    private CreditoDao creditoDao;
 
     @Override
     public List<Cliente> getClientes() {
@@ -22,6 +26,10 @@ public class ClienteServicempl implements ClienteService {
 
     @Override
     public void save(Cliente cliente) {
+        Credito credito = cliente.getCredito();
+        credito = creditoDao.save(credito); // se hace el insert o update en la tabla de credito
+        cliente.setCredito(credito);
+        
         clienteDao.save(cliente);
     }
 
