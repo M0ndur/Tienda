@@ -9,21 +9,21 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-        <h1>Listado de clientes</h1>
+        <h2 th:text="#{clientes.titulo}">Listado de clientes</h2>
 
-        <a th:href="@{/cliente/nuevo}">Nuevo Cliente </a>
+        <a th:href="@{/cliente/nuevo}" th:text="#{cliente.nuevo}">Nuevo Cliente </a>
         
         <div th:if="${clientes != null and !clientes.empty}"> <!-- Este bloque funciona si la variable clientes es diferente a null y no esta vacia -->
         <table border="1">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>Correo</th>
-                    <th>Telefono</th>
-                    <th>Limite de credito</th>
-                    <th>Eliminar</th>
-                    <th>Modificar</th>
+                    <th th:text="#{cliente.nombre}">Nombre</th>
+                    <th th:text="#{cliente.apellidos}">Apellidos</th>
+                    <th th:text="#{cliente.correo}">Correo</th>
+                    <th th:text="#{cliente.telefono}">Telefono</th>
+                    <th th:text="#{cliente.limite}">Limite de credito</th>
+                    <th th:text="#{accion.eliminar}">Eliminar</th>
+                    <th th:text="#{accion.actualizar}">Modificar</th>
 
                 </tr>
             </thead>
@@ -34,14 +34,14 @@
                     <td th:text="${cliente.correo}"></td>
                     <td th:text="${cliente.telefono}"></td>
                     <td th:text="${cliente.credito.limite}"></td>
-                    <td> <a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}">Eliminar</a></td>
-                    <td> <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}">Modificar</a></td>
+                    <td> <a th:href="@{/cliente/eliminar/} + ${cliente.idCliente}" th:text="#{accion.eliminar}">Eliminar</a></td>
+                    <td> <a th:href="@{/cliente/modificar/} + ${cliente.idCliente}" th:text="#{accion.actualizar}">Modificar</a></td>
 
                 </tr>
             </tbody>
         </table>
         </div>
-        <div th:if="${clientes == null or clientes.empty}"> No tenemos lista de clientes que mostrar en este momento </div>
+        <div th:if="${clientes == null or clientes.empty}"> <p th:text="#{cliente.no_mostrar}"> No tenemos lista de clientes que mostrar en este momento </div>
             
         </div>
         <footer th:replace="layout/plantilla :: footer"/>

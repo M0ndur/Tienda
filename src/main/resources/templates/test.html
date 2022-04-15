@@ -9,7 +9,7 @@
     <body>
         <header th:replace="layout/plantilla :: header"/>
         <div class="contenido">
-            
+<<<<<<< HEAD
         <h2 th:text="#{index.titulo}">Nuestros productos</h2>        
                 
         <div th:if="${articulos != null and !articulos.empty}"> 
@@ -32,8 +32,31 @@
             </tbody>
         </table>
         </div>
-        <div th:if="${articulos == null or articulos.empty}" th:text="#{articulo.no_mostrar}"> No tenemos articulos que mostrar en este momento </div>    
+        <div th:if="${articulos == null or articulos.empty}" th:text="#{articulo.no_mostrar}"> No tenemos articulos que mostrar en este momento </div>
+=======
+        <h2>Nuestros productos</h2>        
+                
+        <div th:if="${articulos != null and !articulos.empty}"> 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Comprar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="articulo : ${articulos}">
+                    <td th:text="${articulo.descripcion}"></td>
+                    <td th:text="${articulo.precio}"></td>
+                    <td> <a th:href="@{/carrito/agregar} + ${articulo.idArticulo}">Agregar</a></td>
 
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div th:if="${articulos == null or articulos.empty}"> No tenemos articulos que mostrar en este momento </div>
+>>>>>>> origin/master
         </div>
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
