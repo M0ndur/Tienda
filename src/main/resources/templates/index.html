@@ -3,18 +3,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/CSS/Menu.css" rel="stylesheet" type="text/css"/>
+    
+        <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>  
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
-        <div class="contenido">
-            
-        <h2 th:text="#{index.titulo}">Nuestros productos</h2>        
-                
-        <div th:if="${articulos != null and !articulos.empty}"> 
+        
+        <div class="container">
+            <h2 th:text="#{index.titulo}">Nuestros Articulos</h2>            
+            <div class="row row-cols-3" th:if="${articulos != null and !articulos.empty}">
+                <div class="card" th:each="articulo : ${articulos}" >
+               <!--     <img src="/images/equipo1.jpg" class="card-img-top" alt="equipo">  -->
+                    <div class="card-body">
+                        <h5 class="card-title">[[${articulo.descripcion}]]</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-end">[[${new java.text.DecimalFormat('¢#,##0.00').format(articulo.precio)}]]</h6>
+                        <a class="card-link" th:href="@{/carrito/agregar/} + ${articulo.idArticulo}">[[#{articulo.comprar}]]</a>
+                        <p class="card-text">[[${articulo.detalle}]]</p>                        
+                    </div>
+                </div>                
+            </div>
+            <div th:if="${articulos == null or articulos.empty}"  th:text="#{articulo.no_mostrar}">
+                No tenemos lista de articulos que mostrar...
+            </div>
+        </div>
+      
+        <!--div th:if="${articulos != null and !articulos.empty}"> 
         <table border="1">
             <thead>
                 <tr>
@@ -36,7 +50,7 @@
         </div>
         <div th:if="${articulos == null or articulos.empty}" th:text="#{articulo.no_mostrar}"> No tenemos articulos que mostrar en este momento </div>    
 
-        </div>
+        </div-->
         <footer th:replace="layout/plantilla :: footer"/>
     </body>
 </html>

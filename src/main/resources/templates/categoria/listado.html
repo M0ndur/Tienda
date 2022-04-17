@@ -3,10 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/CSS/Menu.css" rel="stylesheet" type="text/css"/>
+     <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>  
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -29,7 +27,7 @@
             <tbody>
                 <tr th:each="categoria : ${categorias}">
                     <td th:text="${categoria.descripcion}"></td>
-                    <td><input type="checkbox" name="activa" th:checked="${categoria.activo}" disabled="true"></td>
+                    <td><input type="checkbox" name="activo" th:checked="${categoria.activo}" disabled="true"></td>
                     <td> <a th:href="@{/categoria/eliminar/} + ${categoria.idCategoria}"
                             th:text="#{accion.eliminar}">Eliminar</a></td>
                     <td> <a th:href="@{/categoria/modificar/} + ${categoria.idCategoria}"

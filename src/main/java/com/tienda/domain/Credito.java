@@ -18,7 +18,7 @@ public class Credito implements Serializable{
     @Column(name="id_credito")
     private Long idCredito; //esto para mapear una tabla de mySQL, fin
     
-    private double limite;
+    public double limite;
 
     public Credito() {
     }

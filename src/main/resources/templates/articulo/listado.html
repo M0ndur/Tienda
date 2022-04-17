@@ -3,10 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">    <!-- comment -->
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-        <link href="/CSS/Menu.css" rel="stylesheet" type="text/css"/>
+     <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>  
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -35,7 +33,7 @@
                      <td th:text="${articulo.detalle}"></td>
                     <td th:text="${articulo.precio}"></td>
                     <td th:text="${articulo.existencias}"></td>
-                    <td th:text="${articulo.activo}"></td>
+                    <td><input type="checkbox" name="activo" th:checked="${articulo.activo}" disabled="true"></td>
                     <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/articulo/eliminar/} + ${articulo.idArticulo}"
                             th:text="#{accion.eliminar}">Eliminar</a></td>
                     <td sec:authorize="hasRole('ROLE_ADMIN')"> <a th:href="@{/articulo/modificar/} + ${articulo.idArticulo}"

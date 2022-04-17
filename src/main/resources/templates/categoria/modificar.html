@@ -4,10 +4,8 @@
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
     
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-    <link href="/CSS/Menu.css" rel="stylesheet" type="text/css"/>
+     <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>  
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>

@@ -4,10 +4,8 @@
       xmlns:th="http://wwww.thymeleaf.org" 
       xmlns:sec="http://thymeleaft.org/extras/spring-security">
     
-    <head>
-        <title>TechShop</title>
-        <meta charset="UTF-8">
-    <link href="/CSS/Menu.css" rel="stylesheet" type="text/css"/>
+     <head th:replace="layout/plantilla :: head">
+        <title>TechShop</title>  
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"/>
@@ -21,15 +19,15 @@
               th:object="${articulo}">  <!-- por seguridad de que no se vea el texto en el URL se usa el metodo post-->
             
             <input type="hidden" name="idArticulo" th:field="*{idArticulo}"/><br/>
-            
-            <--<!-- comment <label for="categoria" th:text="#{articulo.categoria}">Categoria:</label>
+            <input type="hidden" name="idArticulo" th:field="*{idCategoria}"/>
+            <!--<label for="categoria" th:text="#{articulo.categoria}">Categoria:</label>
             <select th:field="*{idCategoria}">
                 <option th:each="categoria: ${categorias}"
                         th:value="${categoria.idCategoria}"
                         th:text="${categoria.descripcion}"/>
                 
-            </select>-->
-            <br/>
+            </select>
+            <br/>-->
             
 
             <label for="descripcion" th:text="#{articulo.descripcion}">Descripcion: </label> <!-- for etiqueta para nombre -->
@@ -46,7 +44,7 @@
             
             <br/> 
             <label for="activo" th:text="#{articulo.activo}">Activo: </label> 
-            <input type="text" name="activo" th:field="*{activo}"/>
+            <input type="checkbox" name="activo" th:field="*{activo}"/>
             <br/> 
             
             <button type="submit" name="guardar" th:text="#{accion.guardar}"/>

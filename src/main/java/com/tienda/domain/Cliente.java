@@ -24,7 +24,7 @@ public class Cliente implements Serializable{
     
     @JoinColumn(name="id_credito", referencedColumnName ="id_credito") //foreing key en java, en la tabla cliente existe un id_credito
     @ManyToOne
-    private Credito credito; //una clase cliente va a tener un objeto de clas ecredito de tipo credito
+    public Credito credito; //una clase cliente va a tener un objeto de clas ecredito de tipo credito
 
     public Cliente() {
     }
